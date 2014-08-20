@@ -39,9 +39,7 @@
   set history=1000
   " set spell " Spell checking (yuck, why?)
   set hidden
-  set keyword-=.
-  set keyword-=#
-  set keyword-=-
+
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -72,7 +70,7 @@
 
 " Vim UI {
   "let g:use_solarized_color=true
-  let g:use_molokai_colors=true
+  let g:use_molokai_colors="true"
 
   if exists('g:use_solarized_color')
     if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
@@ -259,7 +257,6 @@
 
 " Plugins {
   " neocomplete {
-    if count(g:spf13_bundle_groups, 'neocomplete')
       let g:acp_enableAtStartup = 0
       let g:neocomplete#enable_at_startup = 1
       let g:neocomplete#enable_smart_case = 1
