@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 app_dir="$HOME/.dotfiles"
-[ -z "$git_uri" ] && git_uri='https://github.com/n0hbdy/dotfiles'
+git_branch="master"
+debug_mode='0'
+[ -z "$git_uri" ] && git_uri='https://github.com/Nj0hbdy/.dotfiles'
 [ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
 
 msg() {
@@ -104,7 +106,7 @@ setup_vundle() {
   export SHELL='/bin/sh'
 
   vim \
-    -u "$app_dir/.vimrc.bundles.default" \
+    -u "$app_dir/.vimrc.bundles" \
     "+set nomore" \
     "+BundleInstall!" \
     "+BundleClean" \

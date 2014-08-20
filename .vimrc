@@ -71,13 +71,23 @@
 " }
 
 " Vim UI {
-  if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-  let g:solarized_termcolors=256
-  let g:solarized_termtrans=1
-  let g:solarized_contrast="normal"
-  let g:solarized_visibility="normal"
-  color solarized " Load a colorscheme
+  "let g:use_solarized_color=true
+  let g:use_molokai_colors=true
+
+  if exists('g:use_solarized_color')
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+      let g:solarized_termcolors=256
+      let g:solarized_termtrans=1
+      let g:solarized_contrast="normal"
+      let g:solarized_visibility="normal"
+      color solarized " Load a colorscheme
+    endif
   endif
+
+  if exists('g:use_molokai_colors')
+    color molokai
+  endif
+
   set tabpagemax=15 " Only show 15 tabs
   set showmode " Display the current mode
   set cursorline " Highlight current line
@@ -150,6 +160,8 @@
   map <C-K> <C-W>k<C-W>_
   map <C-L> <C-W>l<C-W>_
   map <C-H> <C-W>h<C-W>_
+
+  imap jj <Esc>
 
   noremap j gj
   noremap k gk

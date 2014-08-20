@@ -63,6 +63,7 @@
     Bundle 'Lokaltog/vim-easymotion'
     Bundle 'jistr/vim-nerdtree-tabs'
     Bundle 'flazz/vim-colorschemes'
+    Bundle 'fatih/molokai'
     Bundle 'mbbill/undotree'
     "Bundle 'nathanaelkane/vim-indent-guides'
     Bundle 'vim-scripts/restore_view.vim'
