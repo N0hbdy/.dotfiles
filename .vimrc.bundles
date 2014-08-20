@@ -130,6 +130,11 @@
     Bundle 'honza/vim-snippets'
   " }
 
+  " CoffeeScript & React {
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'mtscout6/vim-cjsx'
+  " }
+
   " Misc {
     Bundle 'tpope/vim-markdown'
     Bundle 'cespare/vim-toml'

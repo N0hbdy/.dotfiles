@@ -2,7 +2,6 @@
 " vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
 " }
 
-
 " Environment {
   " Basics {
     set nocompatible
@@ -145,7 +144,7 @@
 
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-  autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType haskell,puppet,ruby,yml,javascript setlocal expandtab shiftwidth=2 softtabstop=2
   autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
 
 " }
