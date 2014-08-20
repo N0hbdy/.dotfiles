@@ -104,6 +104,7 @@
     Bundle 'pangloss/vim-javascript'
     Bundle 'briancollins/vim-jst'
     Bundle 'kchmck/vim-coffee-script'
+    Bundle 'mtscout6/vim-cjsx'
   " }
 
   " HTML {
@@ -128,11 +129,6 @@
     Bundle 'Shougo/neosnippet'
     Bundle 'Shougo/neosnippet-snippets'
     Bundle 'honza/vim-snippets'
-  " }
-
-  " CoffeeScript & React {
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'mtscout6/vim-cjsx'
   " }
 
   " Misc {
