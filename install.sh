@@ -123,7 +123,7 @@ program_exists "vim" "To install $app_name you first need to install Vim."
 
 clone_repo      "Successfully cloned $app_name"
 
-create_symlinks "Setting up vim symlinks"
+create_vim_symlinks "Setting up vim symlinks"
 
 clone_vundle    "Successfully cloned vundle"
 
