@@ -529,6 +529,10 @@
       nnoremap <silent> <leader>gg :SignifyToggle<CR>
     endif
   " }
+
+  " Ag/Ack {
+    let g:ackprg="ag --nogroup --nocolor --column --smart-case"
+  " }
 " }
 
 
