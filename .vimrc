@@ -144,7 +144,8 @@
 
   autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-  autocmd FileType haskell,puppet,ruby,yml,javascript setlocal expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType haskell,puppet,ruby,yml,javascript,coffee setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
+  autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
   autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
 
 " }
