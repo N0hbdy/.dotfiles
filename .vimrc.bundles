@@ -117,7 +117,7 @@
   " }
   "
   " Snippets and AutoComplete {
-    Bundle 'Shougo/neocomplete.vim.git'
+    " Bundle 'Shougo/neocomplete.vim.git'
     Bundle 'Shougo/neosnippet'
     Bundle 'Shougo/neosnippet-snippets'
     Bundle 'honza/vim-snippets'
