@@ -115,7 +115,11 @@
   " Go Lang {
     Bundle 'fatih/vim-go'
   " }
-  "
+
+  " Elixir Lang {
+    Bundle 'elixir-lang/vim-elixir'
+  " }
+
   " Snippets and AutoComplete {
     " Bundle 'Shougo/neocomplete.vim.git'
     Bundle 'Shougo/neosnippet'
