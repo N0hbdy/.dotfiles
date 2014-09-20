@@ -142,8 +142,6 @@
   set pastetoggle=<F12>
   autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
-  autocmd FileType go autocmd BufWritePre <buffer> Fmt
-
   autocmd FileType haskell,puppet,ruby,yml,javascript,coffee,cjsx setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
   autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
   autocmd BufNewFile,BufReadPost *.cjsx setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
