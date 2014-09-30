@@ -32,104 +32,104 @@
 " Bundles {
 
   " Deps {
-    Bundle 'gmarik/vundle'
-    Bundle 'MarcWeber/vim-addon-mw-utils'
-    Bundle 'tomtom/tlib_vim'
-    Bundle 'mileszs/ack.vim'
+    Plugin 'gmarik/vundle'
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'mileszs/ack.vim'
   " }
 
   " General {
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'altercation/vim-colors-solarized'
-    Bundle 'spf13/vim-colors'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-repeat'
-    Bundle 'spf13/vim-autoclose'
-    Bundle 'kien/ctrlp.vim'
-    Bundle 'tacahiroy/ctrlp-funky'
-    Bundle 'terryma/vim-multiple-cursors'
-    Bundle 'vim-scripts/sessionman.vim'
-    Bundle 'matchit.zip'
-    Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-    Bundle 'bling/vim-bufferline'
-    Bundle 'Lokaltog/vim-easymotion'
-    Bundle 'jistr/vim-nerdtree-tabs'
-    Bundle 'flazz/vim-colorschemes'
-    Bundle 'fatih/molokai'
-    Bundle 'mbbill/undotree'
-    "Bundle 'nathanaelkane/vim-indent-guides'
-    Bundle 'vim-scripts/restore_view.vim'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'spf13/vim-colors'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'spf13/vim-autoclose'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'vim-scripts/sessionman.vim'
+    Plugin 'matchit.zip'
+    Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+    Plugin 'bling/vim-bufferline'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'flazz/vim-colorschemes'
+    Plugin 'fatih/molokai'
+    Plugin 'mbbill/undotree'
+    "Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'vim-scripts/restore_view.vim'
     " ... what might these be?
-    Bundle 'mhinz/vim-signify'
-    Bundle 'tpope/vim-abolish.git'
-    Bundle 'osyo-manga/vim-over'
-    Bundle 'kana/vim-textobj-user'
-    Bundle 'kana/vim-textobj-indent'
-    Bundle 'gcmt/wildfire.vim'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'tpope/vim-abolish.git'
+    Plugin 'osyo-manga/vim-over'
+    Plugin 'kana/vim-textobj-user'
+    Plugin 'kana/vim-textobj-indent'
+    Plugin 'gcmt/wildfire.vim'
 
  " }
 
   " General Programming {
-    Bundle 'scrooloose/syntastic'
-    Bundle 'tpope/vim-fugitive'
-    Bundle 'mattn/webapi-vim'
-    Bundle 'mattn/gist-vim'
-    Bundle 'scrooloose/nerdcommenter'
-    Bundle 'tpope/vim-commentary'
-    Bundle 'godlygeek/tabular'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'mattn/webapi-vim'
+    Plugin 'mattn/gist-vim'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'tpope/vim-commentary'
+    Plugin 'godlygeek/tabular'
     if executable('ctags')
-      Bundle 'majutsushi/tagbar'
+      Plugin 'majutsushi/tagbar'
     endif
   " }
 
   " Python {
     " Pick either python-mode or pyflakes & pydoc
-    Bundle 'klen/python-mode'
-    Bundle 'yssource/python.vim'
-    Bundle 'python_match.vim'
-    Bundle 'pythoncomplete'
+    Plugin 'klen/python-mode'
+    Plugin 'yssource/python.vim'
+    Plugin 'python_match.vim'
+    Plugin 'pythoncomplete'
   " }
 
   " Javascripts {
-    Bundle 'elzr/vim-json'
-    Bundle 'groenewege/vim-less'
-    Bundle 'pangloss/vim-javascript'
-    Bundle 'briancollins/vim-jst'
-    Bundle 'kchmck/vim-coffee-script'
-    Bundle 'mtscout6/vim-cjsx'
+    Plugin 'elzr/vim-json'
+    Plugin 'groenewege/vim-less'
+    Plugin 'pangloss/vim-javascript'
+    Plugin 'briancollins/vim-jst'
+    Plugin 'kchmck/vim-coffee-script'
+    Plugin 'mtscout6/vim-cjsx'
   " }
 
   " HTML {
-    Bundle 'amirh/HTML-AutoCloseTag'
-    Bundle 'hail2u/vim-css3-syntax'
-    Bundle 'gorodinskiy/vim-coloresque'
-    Bundle 'tpope/vim-haml'
+    Plugin 'amirh/HTML-AutoCloseTag'
+    Plugin 'hail2u/vim-css3-syntax'
+    Plugin 'gorodinskiy/vim-coloresque'
+    Plugin 'tpope/vim-haml'
   " }
 
   " Infinite sorrow...
   " Ruby {
-    Bundle 'tpope/vim-rails'
+    Plugin 'tpope/vim-rails'
     let g:rubycomplete_buffer_loading = 1
   " }
 
   " Go Lang {
-    Bundle 'fatih/vim-go'
+    Plugin 'fatih/vim-go'
   " }
 
   " Elixir Lang {
-    Bundle 'elixir-lang/vim-elixir'
+    Plugin 'elixir-lang/vim-elixir'
   " }
 
   " Snippets and AutoComplete {
-    " Bundle 'Shougo/neocomplete.vim.git'
-    Bundle 'Shougo/neosnippet'
-    Bundle 'Shougo/neosnippet-snippets'
-    Bundle 'honza/vim-snippets'
+    " Plugin 'Shougo/neocomplete.vim.git'
+    Plugin 'Shougo/neosnippet'
+    Plugin 'Shougo/neosnippet-snippets'
+    Plugin 'honza/vim-snippets'
   " }
 
   " Misc {
-    Bundle 'tpope/vim-markdown'
-    Bundle 'cespare/vim-toml'
+    Plugin 'tpope/vim-markdown'
+    Plugin 'cespare/vim-toml'
   " }
 
 " }
