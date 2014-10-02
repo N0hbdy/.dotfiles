@@ -3,7 +3,7 @@ app_dir="$HOME/.dotfiles"
 git_branch="master"
 debug_mode='0'
 [ -z "$git_uri" ] && git_uri='https://github.com/Nj0hbdy/.dotfiles'
-[ -z "$VUNDLE_URI" ] && VUNDLE_URI="https://github.com/gmarik/vundle.git"
+[ -z "$VUNDLE_URI" ] && NEOBUNDLE_URI="https://github.com/Shougo/neobundle.vim"
 
 msg() {
   printf '%b\n' "$1" >&2
@@ -52,8 +52,8 @@ upgrade_repo() {
     git pull origin "$git_branch"
   fi
 
-  if [ "$1" = "vundle" ]; then
-    cd "$HOME/.vim/bundle/vundle" &&
+  if [ "$1" = "neobundle.vim" ]; then
+    cd "$HOME/.vim/bundle/neobundle.vim" &&
     git pull origin master
   fi
 
@@ -75,11 +75,11 @@ clone_repo() {
   fi
 }
 
-clone_vundle() {
-  if [ ! -e "$HOME/.vim/bundle/vundle" ]; then
-    git clone $VUNDLE_URI "$HOME/.vim/bundle/vundle"
+clone_neobundle() {
+  if [ ! -e "$HOME/.vim/bundle/neobundle.vim" ]; then
+    git clone $NEOBUNDLE_URI "$HOME/.vim/bundle/neobundle.vim"
   else
-    upgrade_repo "vundle"   "Successfully updated vundle"
+    upgrade_repo "neobundle.vim"   "Successfully updated neobundle.vim"
   fi
   ret="$?"
   success "$1"
@@ -93,7 +93,6 @@ create_vim_symlinks() {
   fi
 
   lnif "$endpath/.vimrc"              "$HOME/.vimrc"
-  lnif "$endpath/.vimrc.bundles"      "$HOME/.vimrc.bundles"
   lnif "$endpath/.vim"                "$HOME/.vim"
 
   ret="$?"
@@ -101,16 +100,11 @@ create_vim_symlinks() {
   debug
 }
 
-setup_vundle() {
+setup_neobundle() {
   system_shell="$SHELL"
   export SHELL='/bin/sh'
 
-  vim \
-    -u "$app_dir/.vimrc.bundles" \
-    "+set nomore" \
-    "+BundleInstall!" \
-    "+BundleClean" \
-    "+qall"
+  vim "+NeoBundleInstall +qall"
 
   export SHELL="$system_shell"
 
@@ -125,6 +119,6 @@ clone_repo      "Successfully cloned $app_name"
 
 create_vim_symlinks "Setting up vim symlinks"
 
-clone_vundle    "Successfully cloned vundle"
+clone_neobundle    "Successfully cloned neobundle"
 
-setup_vundle    "Now updating/installing plugins using Vundle"
+setup_neobundle    "Now updating/installing plugins using Neobundle"
