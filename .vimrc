@@ -120,7 +120,7 @@ syntax on
 NeoBundleCheck
 
 " Solid bar for vertical splits
-set fcs=vert:│
+"set fcs=vert:│
 
 " Turn on line number
 set number
@@ -377,12 +377,12 @@ let g:unite_source_grep_default_opts = '--no-color -g'
 let g:unite_split_rule = "botright"
 
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async<CR>
-nnoremap <C-r> :<C-u>Unite buffer<CR>
+nnoremap <leader>p :<C-u>Unite buffer<CR>
 nnoremap <leader>a :<C-u>Unite grep:.<CR>
 
 
 "===============================================================================
-" Go
+" Syntax
 "===============================================================================
 
 autocmd MyAutoCmd FileType go
@@ -390,6 +390,12 @@ autocmd MyAutoCmd FileType go
       \ setlocal softtabstop=4 |
       \ setlocal shiftwidth=4 |
       \ setlocal noexpandtab
+
+autocmd MyAutoCmd FileType ruby,yml,javascript,coffee,cjsx
+      \ setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
+
+autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd BufNewFile,BufReadPost *.cjsx setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 "===============================================================================
 " Airline
