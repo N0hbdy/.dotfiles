@@ -377,8 +377,8 @@ let g:unite_source_grep_default_opts = '--no-color -g'
 let g:unite_split_rule = "botright"
 
 nnoremap <C-p> :<C-u>Unite -start-insert file_rec/async<CR>
-nnoremap <leader>p :<C-u>Unite buffer<CR>
-nnoremap <leader>a :<C-u>Unite grep:.<CR>
+nnoremap <leader>t :<C-u>Unite buffer<CR>
+nnoremap <leader>g :<C-u>Unite grep:.<CR>
 
 
 "===============================================================================
