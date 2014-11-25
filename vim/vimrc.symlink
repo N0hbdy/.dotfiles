@@ -93,6 +93,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'briancollins/vim-jst'
 NeoBundle 'mtscout6/vim-cjsx'
+NeoBundle 'mxw/vim-jsx'
 
 " GoLang
 NeoBundle 'fatih/vim-go'
@@ -391,11 +392,12 @@ autocmd MyAutoCmd FileType go
       \ setlocal shiftwidth=4 |
       \ setlocal noexpandtab
 
-autocmd MyAutoCmd FileType ruby,yml,javascript,coffee,cjsx
+autocmd MyAutoCmd FileType ruby,yml,javascript,coffee,cjsx,jsx
       \ setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 
 autocmd BufNewFile,BufReadPost *.coffee setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 autocmd BufNewFile,BufReadPost *.cjsx setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+autocmd BufNewFile,BufReadPost *.jsx setl shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 
 "===============================================================================
 " Airline
