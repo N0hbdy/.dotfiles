@@ -139,7 +139,7 @@ install_dotfiles () {
 run_installs () {
   info 'running install'
   info ''
-  $DOTFILES_ROOT/script/install
+  find $DOTFILES_ROOT -name install.sh | while read installer ; do sh -c "${installer}" ; done
   info ''
   info 'Finished running install'
 
