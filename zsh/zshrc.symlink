@@ -31,3 +31,7 @@ do
 done
 
 unset config_files
+
+if [ -e $HOME/.zshrc.local ]; then
+    source $HOME/.zshrc.local
+fi

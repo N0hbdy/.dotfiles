@@ -8,6 +8,8 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 " Required:
 call neobundle#begin(expand('~/.nvim/bundle/'))
 
@@ -42,6 +44,7 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/nerdtree'
 
 NeoBundle 'bling/vim-airline' " So much faster than Powerline! :)
 
@@ -482,3 +485,10 @@ endif
 
 nmap <leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
 let g:vim_json_syntax_conceal = 0
+
+"===============================================================================
+" Nerdtree
+"===============================================================================
+
+nmap <Leader>n :NERDTree <CR>
+
