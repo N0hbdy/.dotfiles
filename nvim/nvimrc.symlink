@@ -109,7 +109,7 @@ NeoBundle 'fatih/vim-go'
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
 " disable fmt on save
-" let g:go_fmt_autosave = 0
+"let g:go_fmt_autosave = 0
 
 
 " Elixir
@@ -342,8 +342,8 @@ nnoremap W :w<cr>
 " Insert Mode Shift Key Mappings
 "===============================================================================
 
-" jj: Esc
-imap jj <Esc>
+" tn: Esc
+imap tn <Esc>
 
 
 
