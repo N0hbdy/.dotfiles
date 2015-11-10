@@ -1,6 +1,8 @@
  " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
+let g:python_host_prog='/usr/bin/python'
+
 if has('vim_starting')
   set nocompatible               " Be iMproved
 
