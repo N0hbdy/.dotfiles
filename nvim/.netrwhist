@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/amcrae/.config/nvim'
+let g:netrw_dirhist_2='/Users/amcrae/.config/nvim/rc'
+let g:netrw_dirhist_3='/Users/amcrae/go/src/source.developers.google.com/p/amcrae-local-test/r/dummydummy'
+let g:netrw_dirhist_4='/Users/amcrae/go/src/github.com/N0hbdy/filemanager'
+let g:netrw_dirhist_5='/Users/amcrae/go/src/source.developers.google.com/p/amcrae-local-test/r/dummydummy'
+let g:netrw_dirhist_6='/Users/amcrae'

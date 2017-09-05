@@ -1,0 +1,147 @@
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+on_source = ['unite.vim', 'vimshell.vim']
+
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_if = 1
+on_event = 'TextYankPost'
+on_source = ['unite.vim', 'denite.nvim']
+
+[[plugins]]
+repo = 'Shougo/echodoc.vim'
+on_event = 'CompleteDone'
+hook_source = '''
+" let g:echodoc#type = 'signature'
+call echodoc#enable()
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+depends = 'context_filetype.vim'
+if = "has('lua')"
+on_event = 'InsertEnter'
+hook_source = '''
+  let g:neocomplete#enable_at_startup = 1
+  source ~/.config/nvim/rc/plugins/neocomplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+depends = ['neosnippet-snippets', 'context_filetype.vim']
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+hook_source = '''
+  imap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  smap <silent>L     <Plug>(neosnippet_jump_or_expand)
+  xmap <silent>L     <Plug>(neosnippet_expand_target)
+  let g:neosnippet#enable_snipmate_compatibility = 1
+  let g:neosnippet#enable_completed_snippet = 1
+  let g:neosnippet#expand_word_boundary = 1
+  " let g:snippets_dir = '~/.config/nvim/snippets/,~/.config/nvim/bundle/snipmate/snippets/'
+  let g:neosnippet#snippets_directory = '~/.config/nvim/snippets'
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+hook_source = 'source ~/.config/nvim/rc/plugins/denite.rc.vim'
+hook_add = '''
+  nnoremap <silent> ;r
+        \ :<C-u>Denite -buffer-name=register
+        \ register neoyank<CR>
+  xnoremap <silent> ;r
+        \ :<C-u>Denite -default-action=replace -buffer-name=register
+        \ register neoyank<CR>
+  nnoremap <silent> [Window]<Space>
+        \ :<C-u>Denite file_rec:~/.config/nvim/rc<CR>
+  nnoremap <silent> / :<C-u>Denite -buffer-name=search -auto-highlight
+        \ line<CR>
+  nnoremap <silent> * :<C-u>DeniteCursorWord -buffer-name=search
+        \ -auto-highlight -mode=normal line<CR>
+  nnoremap <silent> [Window]s :<C-u>Denite file_point file_old
+        \ -sorters=sorter_rank
+        \ `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+  nnoremap <silent><expr> tt  &filetype == 'help' ?  "g\<C-]>" :
+        \ ":\<C-u>DeniteCursorWord -buffer-name=tag -immediately
+        \  tag:include\<CR>"
+  nnoremap <silent><expr> tp  &filetype == 'help' ?
+        \ ":\<C-u>pop\<CR>" : ":\<C-u>Denite -mode=normal jump\<CR>"
+  nnoremap <silent> [Window]n :<C-u>Denite dein<CR>
+  nnoremap <silent> [Window]g :<C-u>Denite ghq<CR>
+  nnoremap <silent> ;g :<C-u>Denite -buffer-name=search
+        \ -no-empty -mode=normal grep<CR>
+  nnoremap <silent> n :<C-u>Denite -buffer-name=search
+        \ -resume -mode=normal -refresh<CR>
+  nnoremap <silent> ft :<C-u>Denite filetype<CR>
+  nnoremap <silent> <C-t> :<C-u>Denite
+        \ -select=`tabpagenr()-1` -mode=normal deol<CR>
+  nnoremap <silent> <C-k> :<C-u>Denite -mode=normal change jump<CR>
+  nnoremap <silent> [Space]gs :<C-u>Denite gitstatus<CR>
+  nnoremap <silent> ;;
+        \ :<C-u>Denite command command_history<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'Shougo/vimshell.vim'
+on_map = {n = '<Plug>'}
+hook_source = 'source ~/.config/nvim/rc/plugins/vimshell.rc.vim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+on_cmd = 'Deol'
+on_source = 'denite.nvim'
+hook_add = '''
+  nnoremap <silent> N :<C-u>call deol#new({'command': 'zsh'})<CR>
+  nnoremap <silent> [Space]s :<C-u>Deol zsh<CR>
+  nnoremap <silent> [Window]D  :<C-u>call deol#kill_editor()<CR>
+'''
+hook_source = '''
+  let g:deol#prompt_pattern = '\w*%'
+  set shell=zsh
+  " Set to $PATH.
+  let s:bin = dein#get('vim-themis').rtp . '/bin'
+  function! s:split_envpath(path) abort "{{{
+    let delimiter = has('win32') ? ';' : ':'
+    if stridx(a:path, '\' . delimiter) < 0
+      return split(a:path, delimiter)
+    endif
+    let split = split(a:path, '\\\@<!\%(\\\\\)*\zs' . delimiter)
+    return map(split,'substitute(v:val, ''\\\([\\'
+          \ . delimiter . ']\)'', "\\1", "g")')
+  endfunction"}}}
+  function! s:join_envpath(list, orig_path, add_path) abort "{{{
+    let delimiter = has('win32') ? ';' : ':'
+    return (stridx(a:orig_path, '\' . delimiter) < 0
+          \ && stridx(a:add_path, delimiter) < 0) ?
+          \   join(a:list, delimiter) :
+          \   join(map(copy(a:list),
+          \        "substitute(v:path, ',\\|\\\\,\\@=', '\\\\\\0', 'g')"),
+          \        delimiter)
+  endfunction"}}}
+  let $PATH = s:join_envpath(
+        \ dein#util#_uniq(insert(
+        \    s:split_envpath($PATH), s:bin)), $PATH, s:bin)
+  let $THEMIS_HOME = dein#get('vim-themis').rtp
+  unlet s:bin
+  autocmd FileType deol call s:on_deol()
+  function! s:on_deol() abort
+    nnoremap <buffer><silent> [Space]gc :<C-u>call deol#send('git commit')<CR>
+    nnoremap <buffer><silent> [Space]gA :<C-u>call deol#send('git commit --amend')<CR>
+  endfunction
+'''

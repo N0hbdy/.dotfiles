@@ -48,3 +48,4 @@ bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char
 
 export TERM=xterm-256color
+export EDITOR=nvim

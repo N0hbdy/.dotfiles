@@ -1,0 +1,57 @@
+
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+
+[[plugins]]
+repo = 'jparise/vim-graphql'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+
+[[plugins]]
+repo = 'vim-jp/autofmt'
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+
+[[plugins]]
+repo = 'nixprime/cpsm'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'nsf/gocode'
+rtp = 'nvim'
+
+[[plugins]]
+repo = 'neoclide/denite-git'
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_i = 1
+on_ft = 'go'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+depends = 'context_filetype.vim'
+on_i = 1
+hook_source = '''
+let g:deoplete#enable_at_startup = 1
+source ~/.config/nvim/rc/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'thinca/vim-themis'

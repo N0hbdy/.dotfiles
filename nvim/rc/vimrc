@@ -1,0 +1,96 @@
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
+
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+" Required:
+set runtimepath+=/Users/amcrae/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/amcrae/.config/nvim/dein')
+  call dein#begin('/Users/amcrae/.config/nvim/dein')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/amcrae/.config/nvim/dein/repos/github.com/Shougo/dein.vim')
+
+  call dein#load_toml("~/.config/nvim/rc/dein.toml", {'lazy': 0})
+  call dein#load_toml("~/.config/nvim/rc/deinlazy.toml", {'lazy': 1})
+  call dein#add('chriskempson/base16-vim', {'lazy': 0})
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
+function! s:source_rc(path, ...) abort "{{{
+  let use_global = get(a:000, 0, !has('vim_starting'))
+  let abspath = resolve(expand('~/.config/nvim/rc/' . a:path))
+  if !use_global
+    execute 'source' fnameescape(abspath)
+    return
+  endif
+
+  " substitute all 'set' to 'setglobal'
+  let content = map(readfile(abspath),
+        \ 'substitute(v:val, "^\\W*\\zsset\\ze\\W", "setglobal", "")')
+  " create tempfile and source the tempfile
+  let tempfile = tempname()
+  try
+    call writefile(content, tempfile)
+    execute 'source' fnameescape(tempfile)
+  finally
+    if filereadable(tempfile)
+      call delete(tempfile)
+    endif
+  endtry
+endfunction"}}}
+
+" Set augroup.
+augroup MyAutoCmd
+  autocmd!
+  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+        \ call vimrc#on_filetype()
+  autocmd CursorHold *.toml syntax sync minlines=300
+augroup END
+
+" Neovim and denite
+autocmd MyAutoCmd TermOpen * setlocal modifiable
+autocmd MyAutoCmd TermClose * buffer #
+
+let g:mapleader = ','
+
+" Denite commands
+
+nnoremap <C-p> :<C-u>Denite file_rec<CR>
+nnoremap <leader>s :<C-u>Denite buffer<CR>
+nnoremap <leader><Space>s :<C-u>DeniteBufferDir buffer<CR>
+nnoremap <leader>8 :<C-u>DeniteCursorWord grep:. -mode=normal<CR>
+nnoremap <leader>/ :<C-u>Denite grep:. -mode=normal<CR>
+nnoremap <leader><Space>/ :<C-u>DeniteBufferDir grep:. -mode=normal<CR>
+nnoremap <leader>d :<C-u>DeniteBufferDir file_rec<CR>
+
+call s:source_rc('mappings.rc.vim')
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+let $CACHE = expand('~/.cache')
+
+if !isdirectory(expand($CACHE))
+  call mkdir(expand($CACHE), 'p')
+endif
+
+colorscheme base16-default-dark
